@@ -49,6 +49,7 @@ vim.keymap.set("n", "<C-p>", builtin.find_files, {})
 vim.keymap.set("n", "<leader>/", builtin.live_grep, {})
 vim.keymap.set("n", "<leader>n", ":Neotree filesystem reveal left<CR>", {})
 vim.g.lazyvim_check_order = false
+vim.cmd("filetype plugin indent on")
 
 -------------------------------------------------------------------THE LSP CONFIGS --------------------------------------------------------------------
 vim.diagnostic.config({
@@ -61,18 +62,15 @@ vim.diagnostic.config({
 vim.keymap.set("n", "K", vim.lsp.buf.hover, {})
 vim.keymap.set("n", "L", vim.lsp.buf.definition, {})
 
--- Dodatkowe przydatne mapowania (wyjaśnione poniżej)
 vim.keymap.set("n", "gr", vim.lsp.buf.references, {})
 vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename, {})
 
--- Poprawione mapowanie dla Code Action (zobacz wyjaśnienie poniżej)
 vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, {})
 
 vim.lsp.config("lua_ls", {
 	settings = {
 		Lua = {
 			diagnostics = {
-				-- To naprawi błędy 'undefined global vim' w twoich plikach config
 				globals = { "vim", "require", "os" },
 			},
 		},

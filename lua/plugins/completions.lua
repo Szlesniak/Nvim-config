@@ -33,14 +33,10 @@ return {
 					["<CR>"] = cmp.mapping.confirm({ select = true }),
 				}),
 				sources = cmp.config.sources({
-					-- POPRAWKA #2: Ta linia MUSI być odkomentowana.
-					-- To jest źródło podpowiedzi z serwerów LSP.
 					{ name = "nvim_lsp" },
 
 					{ name = "luasnip" },
 				}, {
-					-- To źródło (które już miałeś) odpowiada
-					-- za podpowiedzi słów z aktualnego pliku.
 					{ name = "buffer" },
 				}),
 			})

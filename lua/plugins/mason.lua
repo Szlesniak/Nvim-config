@@ -1,6 +1,5 @@
 return {
 	{
-		-- Plugin 1: Instalator serwerów
 		"williamboman/mason.nvim",
 		opts = {
 			ui = { border = "rounded" },
