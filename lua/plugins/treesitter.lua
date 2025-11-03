@@ -1,11 +1,21 @@
 return {
 	"nvim-treesitter/nvim-treesitter",
 	event = { "BufReadPre", "BufNewFile" },
-	priority = 1000,
+	priority = 10000,
 	build = ":TSUpdate",
 
 	opts = {
-		ensure_installed = { "cpp", "lua", "rust", "javascript", "zig", "tsx", "python", "typescript" },
+		ensure_installed = {
+			"cpp",
+			"lua",
+			"rust",
+			"javascript",
+			"zig",
+			"tsx",
+			"python",
+			"typescript",
+			"c_sharp",
+		},
 		auto_install = true,
 
 		highlight = {

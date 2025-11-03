@@ -8,6 +8,8 @@ return {
 			cpp = { "clang_format" },
 			typescript = { "prettierd" },
 			typescriptreact = { "prettierd" },
+			cs = { "csharpier" },
+			html = { "prettierd" },
 		},
 	},
 }

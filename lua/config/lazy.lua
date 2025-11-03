@@ -5,6 +5,9 @@ vim.cmd("set shiftwidth=2")
 vim.cmd("set number")
 vim.cmd("set mouse=a")
 vim.opt.clipboard = "unnamedplus"
+vim.opt.scrolloff = 15
+vim.opt.cursorline = true
+vim.opt.relativenumber = true
 
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not (vim.uv or vim.loop).fs_stat(lazypath) then
@@ -35,7 +38,7 @@ require("lazy").setup({
 		{ import = "plugins" },
 	},
 	ui = {
-		border = false,
+		border = true,
 	},
 	-- Configure any other settings here. See the documentation for more details.
 	-- colorscheme that will be used when installing plugins.
@@ -76,11 +79,14 @@ vim.lsp.config("lua_ls", {
 		},
 	},
 })
-
 vim.lsp.enable("lua_ls")
 vim.lsp.enable("clangd")
 vim.lsp.enable("vtsls")
 vim.lsp.enable("pyright")
+vim.lsp.enable("omnisharp")
+vim.lsp.enable("html")
+vim.lsp.enable("cssls")
+
 vim.api.nvim_create_autocmd("BufWritePre", {
 	pattern = "*",
 	callback = function(args)

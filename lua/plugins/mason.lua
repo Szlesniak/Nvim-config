@@ -9,6 +9,9 @@ return {
 				"clangd",
 				"pyright",
 				"vtsls",
+				"omnisharp",
+				"html",
+				"cssls",
 			},
 		},
 	},
@@ -16,7 +19,7 @@ return {
 		"williamboman/mason-lspconfig.nvim",
 		dependencies = { "williamboman/mason.nvim", "neovim/nvim-lspconfig" },
 		opts = {
-			ensure_installed = { "lua_ls", "clangd", "pyright", "vtsls" },
+			ensure_installed = { "lua_ls", "clangd", "pyright", "vtsls", "omnisharp", "html", "cssls" },
 		},
 	},
 	{
@@ -36,6 +39,9 @@ return {
 				capabilities = capabilities,
 			})
 			vim.lsp.config("vtsls", {
+				capabilities = capabilities,
+			})
+			vim.lsp.config("omnisharp", {
 				capabilities = capabilities,
 			})
 		end,
