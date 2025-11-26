@@ -93,3 +93,18 @@ vim.api.nvim_create_autocmd("BufWritePre", {
 		require("conform").format({ bufnr = args.buf })
 	end,
 })
+vim.api.nvim_create_autocmd("FileType", {
+	pattern = { "cpp" },
+	callback = function()
+		vim.opt_local.makeprg = "g++ % -o /tmp/a.out -Wall"
+		vim.opt_local.errorformat = "%f:%l:%c: %trror: %m,%f:%l:%c: %tarning: %m,%f:%l:%c: %m"
+		vim.api.nvim_buf_set_keymap(
+			0,
+			"n",
+			"<F9>",
+			":w<CR>:make<CR>:!/tmp/a.out<CR>",
+			{ noremap = true, silent = false }
+		)
+		vim.api.nvim_buf_set_keymap(0, "n", "<F10>", ":w<CR>:make<CR>", { noremap = true, silent = false })
+	end,
+})
