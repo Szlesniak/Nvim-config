@@ -108,3 +108,13 @@ vim.api.nvim_create_autocmd("FileType", {
 		vim.api.nvim_buf_set_keymap(0, "n", "<F10>", ":w<CR>:make<CR>", { noremap = true, silent = false })
 	end,
 })
+vim.api.nvim_create_autocmd("FileType", {
+	pattern = "python",
+	callback = function()
+		vim.keymap.set("n", "<F9>", function()
+			vim.cmd("botright 15split")
+			vim.cmd("term python3 " .. vim.fn.expand("%"))
+			vim.cmd("startinsert")
+		end, { buffer = true, desc = "Run Python File" })
+	end,
+})
